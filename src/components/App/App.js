@@ -1,36 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { loadMovies } from '../../actions';
+import { connect } from 'react-redux';
 
-class App extends Component() {
 
+class App extends Component {
+ 
   componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
     .then(response => response.json())
-    .then(movies)
+    .then(data => this.props.loadMovies(data.movies))
     .catch(error => console.error(error.message))
   }
 
-  render(
+  render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        
       </div>
     );
-  )
+  }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  loadMovies: movies => dispatch( loadMovies(movies) )
+})
+
+export default connect(null, mapDispatchToProps)(App);
