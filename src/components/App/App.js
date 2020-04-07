@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { loadMovies } from '../../actions';
 import { connect } from 'react-redux';
+import Movies from '../../containers/Movies/Movies';
 
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <Movies />
       </div>
     );
   }
