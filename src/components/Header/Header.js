@@ -2,17 +2,30 @@ import React from 'react';
 import './Header.css';
 import { ReactComponent as ReactLogo } from '../../assets/Logo.svg';
 import { Link } from 'react-router-dom';
+import { logOut } from '../../actions';
+import { connect } from 'react-redux';
 
-const Header = () => {
-
-  return(
+const Header = ({ user, logOut }) => {
+  return (
     <header>
       <ReactLogo />
-      <Link to='/login' >
-        <button>Login</button>
-      </Link>
+      {user.name && <h2>Welcome, {user.name}!</h2>}
+      {user.name ?
+        <button onClick={logOut}>Log out</button> :
+        <Link to='/login' >
+          <button>Log in</button>
+        </Link>
+      }
     </header>
   )
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  logOut: () => dispatch( logOut() )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
