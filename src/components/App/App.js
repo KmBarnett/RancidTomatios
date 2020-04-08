@@ -4,10 +4,12 @@ import { loadMovies } from '../../actions';
 import { connect } from 'react-redux';
 import Movies from '../../containers/Movies/Movies';
 import Header from '../Header/Header';
+import Login from '../Login/Login';
+import { Route } from 'react-router-dom';
 
 
 class App extends Component {
- 
+
   componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
     .then(response => response.json())
@@ -19,7 +21,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Movies />
+        <Route exact path='/' >
+          <Movies />
+        </Route>
+        <Route path='/login' >
+          <Login />
+        </Route>
       </div>
     );
   }
