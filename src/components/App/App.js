@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 
 
 class App extends Component {
- 
+
   componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
     .then(response => response.json())
@@ -17,10 +17,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <main className="App">
         <Header />
         <Movies />
-      </div>
+      </main>
     );
   }
 }
