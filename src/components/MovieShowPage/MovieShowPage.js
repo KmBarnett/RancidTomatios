@@ -12,8 +12,11 @@ const MovieShowPage = (props) => {
     <article className='show-page'>
       <img className='backdrop-img' src={movie.backdrop_path} alt={movie.title} />
       <section className='movie-info'>
-        <h2 className='movie-title'>{movie.title}</h2>
-        <h3>Released: {moment(movie.release_date).format("MMMM Do YYYY")}</h3>
+        <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />
+        <div className='movie-title-container'>
+          <h2 className='movie-title'>{movie.title}</h2>
+        </div>
+        <h3>Released: {moment(movie.release_date).format("MMMM Do, YYYY")}</h3>
         <p className='movie-overview'>{movie.overview}</p>
         <section className='avg-user-rating'>
           <p>Average Rating:</p>
