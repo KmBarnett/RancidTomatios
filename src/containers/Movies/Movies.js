@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './Movies.css'
 import MovieCard from '../../components/MovieCard/MovieCard';
 
 const Movies = ({ movies }) => {
@@ -7,7 +8,7 @@ const Movies = ({ movies }) => {
     return <MovieCard {...movie} key={movie.id}/>
   })
   return(
-    <section>
+    <section className='movie-container'>
       {allMovies}
     </section>
   )
