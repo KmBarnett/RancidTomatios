@@ -4,6 +4,13 @@
   z-index: 1;
 }
 
+.poster-path-img {
+  height: 25em;
+  position: absolute;
+    bottom: 70%;
+    right: 6%;
+}
+
 .movie-info {
   background: #FFF;
   border: 1px solid #979A93;
@@ -17,6 +24,9 @@
   z-index: 2;
 }
 
+.movie-title-container {
+  width: 65%;
+}
 .movie-title {
   font-size: 3em;
 }
@@ -28,9 +38,15 @@ h3,
 
 .movie-overview {
   font-size: 1.35em;
-  margin: 5% 0;
+  line-height: 1.3em;
+  margin: 10% 0;
 }
 
 .avg-user-rating {
   text-align: center;
+}
+
+.star-range {
+  margin: 0 auto;
+  width: 3.3em;
 }
