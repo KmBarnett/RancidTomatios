@@ -1,14 +1,16 @@
 import React from 'react';
 import './Header.css';
 import { ReactComponent as ReactLogo } from '../../assets/Logo.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
   return(
     <header>
       <ReactLogo />
-      <h1>Rancid Tomatillos</h1>
-      <button>Login</button>
+      <Link to='/login' >
+        <button>Login</button>
+      </Link>
     </header>
   )
 }
