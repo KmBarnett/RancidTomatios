@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Movies from '../../containers/Movies/Movies';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
+import MovieShowPage from '../MovieShowPage/MovieShowPage';
 import { Route } from 'react-router-dom';
 
 
@@ -27,6 +28,8 @@ class App extends Component {
         <Route path='/login' >
           <Login />
         </Route>
+        <Route path='/movies/:id' render={(match) => <MovieShowPage matchId={parseInt(match.match.params.id)} />}/>
+
       </main>
     );
   }

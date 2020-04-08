@@ -13,7 +13,7 @@ Note any questions or struggles as well.
 
 ## Type of change
 
-- [ ] Stlye (Non-breaking Style code)
+- [ ] Style (Non-breaking Style code)
 - [ ] Testing (Non-breaking Testing code)
 - [ ] Bug fix or refactor (change which fixes an issue)
 - [ ] New feature (change which adds functionality)
