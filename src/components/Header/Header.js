@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import { ReactComponent as ReactLogo } from '../../assets/Logo.svg';
+import { ReactComponent as Logo } from '../../assets/Logo.svg';
 import { Link } from 'react-router-dom';
 import { logOut } from '../../actions';
 import { connect } from 'react-redux';
@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 const Header = ({ user, logOut }) => {
   return (
     <header>
-      <ReactLogo />
+      <Logo />
       {user.name && <h2>Welcome, {user.name}!</h2>}
       {user.name ?
         <button onClick={logOut}>Log out</button> :

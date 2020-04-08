@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <main className="App">
         <Header />
         <Route exact path='/' >
           <Movies />
@@ -27,7 +27,7 @@ class App extends Component {
         <Route path='/login' >
           <Login />
         </Route>
-      </div>
+      </main>
     );
   }
 }

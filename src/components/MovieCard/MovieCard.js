@@ -1,15 +1,22 @@
 import React from 'react';
 import './MovieCard.css';
+import StarSlider from './../StarSlider/StarSlider.js'
 
 const MovieCard = (props) => {
+  console.log(`${props.title}: ${props.average_rating}`);
 
   return(
-    <article>
-      <h3>
-        {props.title}
-      </h3>
-      <img src={props.poster_path} alt={props.title} />
-      <p>Average Rating: {props.average_rating}</p>
+    <article className='card'>
+      <img className='card-img' src={props.poster_path} alt={props.title} />
+      <section className='card-text'>
+        <h3>
+          {props.title}
+        </h3>
+        <section>
+          <p>Average Rating:</p>
+          <StarSlider rating = {props.average_rating}/>
+        </section>
+      </section>
     </article>
   )
 }
