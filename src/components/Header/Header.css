@@ -31,3 +31,12 @@ button {
   letter-spacing: 1px;
   transition: transform 80ms ease-in;
 }
+
+button:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
