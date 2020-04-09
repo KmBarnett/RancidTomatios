@@ -1,9 +1,12 @@
 import React from 'react';
 import './MovieCard.css';
-import StarSlider from './../StarSlider/StarSlider.js'
+import StarSlider from './../StarSlider/StarSlider.js';
+import { connect } from 'react-redux';
+
+
 
 const MovieCard = (props) => {
-  console.log(`${props.title}: ${props.average_rating}`);
+  console.log(`${props.userRating}: ${props.average_rating}`);
 
   return(
     <article className='card'>
@@ -21,4 +24,8 @@ const MovieCard = (props) => {
   )
 }
 
-export default MovieCard;
+const mapStateToProps = (state, {id}) => ({
+  userRating: state.user.ratings && state.user.ratings.find(rating => rating.movie_id === id)
+})
+
+export default connect(mapStateToProps)(MovieCard);
