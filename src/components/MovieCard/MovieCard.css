@@ -4,6 +4,8 @@
   margin: 1em;
   background: black;
   border-radius: 15px;
+  min-width: 250px;
+  flex-grow: 1;
 }
 
 /* Inset border and animation */
