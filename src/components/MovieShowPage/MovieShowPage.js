@@ -1,11 +1,28 @@
 import React from 'react';
 import './MovieShowPage.css';
-import StarSlider from './../StarSlider/StarSlider.js'
+import StarSlider from './../StarSlider/StarSlider.js';
 import { connect } from 'react-redux';
-import moment from 'moment'
+import moment from 'moment';
+import RatingForm from '../RatingForm/RatingForm';
 
 const MovieShowPage = (props) => {
   const { movie = {} } = props
+  const postMovieRating = rating => {
+    if (movie.id) {
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          movie_id: movie.id,
+          rating: parseInt(rating)
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+    }
+  }
   return(
     <article className='show-page'>
       <img src={movie.backdrop_path} />
@@ -21,12 +38,11 @@ const MovieShowPage = (props) => {
         {props.userRating ?
           <div>
             <StarSlider rating={props.userRating.rating} />
-            <button>Remove Rating</button>
-          </div> :
-          <div>
-            <input type='number'/>
-            <button>Add Rating</button>
-          </div>}
+            <RatingForm rating={props.userRating.rating}
+                        postMovieRating={postMovieRating} />
+          </div>
+           :
+          <RatingForm postMovieRating={postMovieRating} />}
       </section>}
       <p>{movie.overview}</p>
     </article>
