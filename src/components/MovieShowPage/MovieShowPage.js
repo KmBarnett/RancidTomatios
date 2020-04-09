@@ -8,6 +8,8 @@ import { rateMovie } from '../../actions'
 
 const MovieShowPage = (props) => {
   const { movie = {} } = props
+  const rating = props.userRating ?
+    props.userRating.rating : 0
   const postMovieRating = rating => {
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings`, {
         method: 'POST',
@@ -35,14 +37,10 @@ const MovieShowPage = (props) => {
       {props.user.name &&
         <section>
         <p>Your Rating:</p>
-        {props.userRating ?
           <div>
-            <StarSlider rating={props.userRating.rating} />
-            <RatingForm rating={props.userRating.rating}
-                        postMovieRating={postMovieRating} />
+            <StarSlider rating={rating} />
+            <RatingForm postMovieRating={postMovieRating} />
           </div>
-           :
-          <RatingForm postMovieRating={postMovieRating} />}
       </section>}
       <p>{movie.overview}</p>
     </article>
