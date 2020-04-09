@@ -1,19 +1,22 @@
 header {
+  background-color: #DB0300;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2%;
 }
 
-header * {
+/* header * {
   width: 15%;
-}
+} */
 
-header h1 {
+/* header h1 {
   width: 33%;
   font-size: 2rem;
-}
+} */
 
 .logo {
-  height: 20%
+  height: 20%;
+  width: 14rem;
 }
+
