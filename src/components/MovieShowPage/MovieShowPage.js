@@ -4,11 +4,11 @@ import StarSlider from './../StarSlider/StarSlider.js';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import RatingForm from '../RatingForm/RatingForm';
+import { rateMovie } from '../../actions'
 
 const MovieShowPage = (props) => {
   const { movie = {} } = props
   const postMovieRating = rating => {
-    if (movie.id) {
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings`, {
         method: 'POST',
         headers: {
@@ -20,9 +20,9 @@ const MovieShowPage = (props) => {
         })
       })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => props.rateMovie(data.rating))
     }
-  }
+
   return(
     <article className='show-page'>
       <img src={movie.backdrop_path} />
@@ -59,4 +59,8 @@ const mapStateToProps = (state, { matchId }) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps)(MovieShowPage);
+const mapDispatchToProps = dispatch => ({
+  rateMovie: rating => dispatch( rateMovie(rating) )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieShowPage);
