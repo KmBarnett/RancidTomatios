@@ -4,6 +4,8 @@ export const user = (state = {}, action) => {
       return action.user
     case 'LOG_OUT':
       return {}
+    case 'GET_RATINGS':
+      return {...state, ratings: action.ratings}
     default:
       return state
   }
