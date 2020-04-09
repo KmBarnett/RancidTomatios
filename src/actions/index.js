@@ -16,3 +16,8 @@ export const getRatings = ratings => ({
   type: 'GET_RATINGS',
   ratings
 })
+
+export const rateMovie = rating => ({
+  type: 'RATE_MOVIE',
+  rating
+})
