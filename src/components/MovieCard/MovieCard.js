@@ -1,10 +1,12 @@
 import React from 'react';
 import './MovieCard.css';
-import StarSlider from './../StarSlider/StarSlider.js';
+import StarSlider from './../StarSlider/StarSlider.js'
+import { Link } from 'react-router-dom'
 
 const MovieCard = (props) => {
+
   return(
-    <article className='card'>
+    <Link to={`/movies/${props.id}`} className='card'>
       <img className='card-img' src={props.poster_path} alt={props.title} />
       <section className='card-text'>
         <h3>
@@ -16,7 +18,7 @@ const MovieCard = (props) => {
           {props.userRating && <StarSlider rating={props.userRating.rating} />}
         </section>
       </section>
-    </article>
+    </Link>
   )
 }
 
