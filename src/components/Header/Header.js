@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 const Header = ({ user, logOut }) => {
   return (
     <header>
+      <div className='header-container'>
       <Logo />
       {user.name && <h2>Welcome, {user.name}!</h2>}
       {user.name ?
@@ -16,6 +17,7 @@ const Header = ({ user, logOut }) => {
           <button>LOG IN</button>
         </Link>
       }
+      </div>
     </header>
   )
 }
