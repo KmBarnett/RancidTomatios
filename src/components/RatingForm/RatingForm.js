@@ -16,8 +16,8 @@ class RatingForm extends Component {
 
   submitRating = event => {
     event.preventDefault();
-    //if a user has a rating for this movie, delete that rating and give it a new rating, else just give the movie a rating
     this.props.postMovieRating(this.state.rating)
+    this.setState({ rating: 1 })
   }
 
   render() {
