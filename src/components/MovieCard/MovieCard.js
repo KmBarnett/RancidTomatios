@@ -15,7 +15,8 @@ const MovieCard = (props) => {
           <p>Average Rating:</p>
           <StarSlider rating = {props.average_rating}/>
         </section>
-        {props.userRating && <section>
+        {props.userRating &&
+        <section>
           <p>Your Rating:</p>
           <StarSlider rating={props.userRating.rating} />
         </section>}
