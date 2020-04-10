@@ -11,3 +11,13 @@ export const logIn = user => ({
 export const logOut = () => ({
   type: 'LOG_OUT'
 })
+
+export const getRatings = ratings => ({
+  type: 'GET_RATINGS',
+  ratings
+})
+
+export const rateMovie = rating => ({
+  type: 'RATE_MOVIE',
+  rating
+})

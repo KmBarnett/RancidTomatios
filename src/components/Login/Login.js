@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-import { logIn } from '../../actions';
+import { logIn, getRatings } from '../../actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -39,6 +39,12 @@ class Login extends Component {
           password: '',
           authenticated: true
         })
+        return data.user
+      })
+      .then(user => {
+        fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${user.id}/ratings`)
+        .then(response => response.json())
+        .then(data => this.props.getRatings(data.ratings))
       })
       .catch(error => {
         console.error(error.message);
@@ -77,7 +83,8 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  logIn: (user) => dispatch( logIn(user) )
+  logIn: (user) => dispatch( logIn(user) ),
+  getRatings: (ratings) => dispatch( getRatings(ratings) )
 })
 
 export default connect(null, mapDispatchToProps)(Login);
