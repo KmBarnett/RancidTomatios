@@ -2,7 +2,8 @@
   position: relative;
   font-size: 2em;
   line-height: 1;
-  width: 100%;
+  width: 3.25em;
+  height: .7em;
 }
 
 .star-range input[type="range"] {
