@@ -8,14 +8,16 @@ import { connect } from 'react-redux';
 const Header = ({ user, logOut }) => {
   return (
     <header>
+      <div className='header-container'>
       <Logo />
       {user.name && <h2>Welcome, {user.name}!</h2>}
       {user.name ?
         <button onClick={logOut}>Log out</button> :
         <Link to='/login' >
-          <button>Log in</button>
+          <button>LOG IN</button>
         </Link>
       }
+      </div>
     </header>
   )
 }
