@@ -14,5 +14,11 @@ describe('Action Creators', () => {
     expect(result).toEqual(expectedAction)
   });
 
-
+  it('should sould have a type of LOG_IN and a correct pay load', () => {
+    const expectedAction = {
+      type: 'LOG_OUT'
+    }
+    const result = actions.logOut({type: 'LOG_OUT'})
+    expect(result).toEqual(expectedAction);
+  });
 })
