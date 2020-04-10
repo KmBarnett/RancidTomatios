@@ -1,13 +1,23 @@
 header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2%;
+  justify-content: center;
+  margin-bottom: 30px;
+  /* height: 20rem; */
 }
 
-header * {
-  width: 15%;
+.header-container {
+  background-color: #DB0300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
+  width: 80%;
+  height: 50%;
 }
+
+/* header * {
+  width: 15%;
+} */
 
 header h1 {
   width: 33%;
@@ -15,5 +25,29 @@ header h1 {
 }
 
 .logo {
-  height: 20%
+  height: 100%;
+  width: 14rem;
+}
+
+header button {
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: #DB0300;
+  color: WHITE;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px 30px;
+  letter-spacing: 1px;
+  transition: transform 150ms ease-in;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+  background-color: white;
+  color: black;
+}
+
+button:focus {
+  outline: none;
 }
