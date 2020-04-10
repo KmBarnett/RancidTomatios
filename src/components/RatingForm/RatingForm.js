@@ -16,12 +16,15 @@ class RatingForm extends Component {
 
   submitRating = event => {
     event.preventDefault();
+    if (this.props.rating) {
+      this.props.removePreviousRating()
+    }
     this.props.postMovieRating(this.state.rating)
     this.setState({ rating: 1 })
   }
 
   render() {
-    return(
+    return (
       <form onSubmit={this.submitRating}>
         <input
           type='number'
@@ -30,7 +33,7 @@ class RatingForm extends Component {
           max='10'
           value={this.state.rating}
           required
-          onChange={this.updateRating}/>
+          onChange={this.updateRating} />
         <button
           type='submit'>Add Rating
         </button>
