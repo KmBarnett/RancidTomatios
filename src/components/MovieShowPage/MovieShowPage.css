@@ -1,11 +1,10 @@
 .backdrop-img {
-  position: relative;
-  width: 100vw;
-  z-index: 1;
+  margin: 0 10%;
+  width: 80vw;
 }
 
 .poster-path-img {
-  height: 25em;
+  height: 15em;
   position: absolute;
     bottom: 70%;
     right: 6%;
@@ -19,34 +18,31 @@
   padding: 3%;
   opacity: 0.9;
   position: absolute;
-    top: 60%;
+    top: 35%;
     left: 25%;
-  z-index: 2;
 }
 
-.movie-title-container {
-  width: 65%;
-}
-.movie-title {
+.movie-info h2 {
   font-size: 3em;
+  width: 67%;
 }
 
-h3,
-.avg-user-rating {
+.movie-info h3 {
   font-size: 1.6em;
 }
 
 .movie-overview {
-  font-size: 1.35em;
+  font-size: 1.3em;
   line-height: 1.3em;
-  margin: 10% 0;
+  margin: 8% 0;
 }
 
-.avg-user-rating {
+.user-rating {
+  font-size: 1.3em;
   text-align: center;
 }
 
 .star-range {
-  margin: 0 auto;
+  margin: 0 auto 1% auto;
   width: 3.3em;
 }
