@@ -7,6 +7,7 @@ import RatingForm from '../RatingForm/RatingForm';
 import { rateMovie, getRatings } from '../../actions'
 
 const MovieShowPage = (props) => {
+
   const { movie = {} } = props
   const rating = props.userRating ?
     props.userRating.rating : 0
