@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { loadMovies } from '../../actions';
 import { connect } from 'react-redux';
-import Movies from '../../containers/Movies/Movies';
+import Movies from '../Movies/Movies';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import MovieShowPage from '../MovieShowPage/MovieShowPage';
