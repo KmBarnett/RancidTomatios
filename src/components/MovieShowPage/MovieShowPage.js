@@ -40,25 +40,28 @@ const MovieShowPage = (props) => {
 
   return (
     <article className='show-page'>
-      <img src={movie.backdrop_path} />
-      <h2>{movie.title}</h2>
-      <h3>Released: {moment(movie.release_date).format("MMMM Do YYYY")}</h3>
+      <img className='backdrop-img' src={movie.backdrop_path} />
+      <section className='movie-info'>
+        <h2>{movie.title}</h2>
+        <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />
+        <h3>Released: {moment(movie.release_date).format("MMMM Do, YYYY")}</h3>
+        <p className='movie-overview'>{movie.overview}</p>
       <section>
-        <p>Average Rating:</p>
-        <StarSlider rating={movie.average_rating} />
+        <p className='user-rating'>Average Rating:</p>
+        <StarSlider className='star-range' rating={movie.average_rating} />
       </section>
       {props.user.name &&
         <section>
-          <p>Your Rating:</p>
+          <p className='user-rating'>Your Rating:</p>
           <div>
-            <StarSlider rating={rating} />
+            <StarSlider className='star-range'rating={rating} />
             <RatingForm
               removePreviousRating={removePreviousRating}
               postMovieRating={postMovieRating}
               rating={rating} />
           </div>
         </section>}
-      <p>{movie.overview}</p>
+    </section>
     </article>
   )
 }
