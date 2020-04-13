@@ -3,10 +3,25 @@ import { connect } from 'react-redux';
 import './Movies.css'
 import MovieCard from '../../components/MovieCard/MovieCard';
 
-const Movies = ({ movies, userRatings = [] }) => {
+const Movies = ({ movies, userRatings, userName }) => {
   const allMovies = movies.map(movie => {
-    const userRating = userRatings.find(userRating => movie.id === userRating.movie_id);
-    return <MovieCard {...movie} userRating={userRating} key={movie.id}/>
+    if (userRatings) {
+      let userRating = userRatings.find(userRating => movie.id === userRating.movie_id);
+      const rating = userRating ?
+      userRating.rating : 0;
+      console.log(`${movie.title}:`, rating);
+      return <MovieCard
+        {...movie}
+        userRating={rating}
+        loggedIn={true}
+        key={movie.id}
+        />
+    } else {
+      return (<MovieCard
+        {...movie}
+        key={movie.id}
+      />)
+    }
   })
   return(
     <section className='movie-container'>
@@ -17,7 +32,7 @@ const Movies = ({ movies, userRatings = [] }) => {
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
-  userRatings: state.user.ratings
+  userRatings: state.user.ratings,
 })
 
 export default connect(mapStateToProps)(Movies);

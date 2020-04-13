@@ -11,12 +11,27 @@ class StarSlider extends Component {
     }
   }
 
+  submitRating = event => {
+    event.preventDefault();
+    if (this.props.rating) {
+      this.props.removePreviousRating()
+    }
+    this.props.postMovieRating(event.target.value)
+  }
+
+
+  handleChange(e) {
+    this.setState({rating: e.target.value})
+    this.submitRating(e)
+  }
 
   render() {
     const { rating } = this.state
+    const { loggedIn } = this.props
+
     return (
       <div className="star-range">
-        <input disabled type="range" name="range" min="1" max="10" step="1" list="tickmark" value={rating}/>
+        <input onChange={(e) => {this.handleChange(e)}} disabled={!loggedIn} type="range" name="range" min="1" max="10" step="1" list="tickmark" value={rating}/>
         <div className="star-white star">★★★★★</div>
         <div style={{width: rating/2 + 'em'}} className="star-black star">★★★★★</div>
       </div>

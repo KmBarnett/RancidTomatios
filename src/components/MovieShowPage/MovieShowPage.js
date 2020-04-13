@@ -54,7 +54,12 @@ const MovieShowPage = (props) => {
         <section>
           <p className='user-rating'>Your Rating:</p>
           <div>
-            <StarSlider className='star-range'rating={rating} />
+            <StarSlider
+              rating={rating}
+              loggedIn={true}
+              removePreviousRating={removePreviousRating}
+              postMovieRating={postMovieRating}
+              />
             <RatingForm
               removePreviousRating={removePreviousRating}
               postMovieRating={postMovieRating}
