@@ -22,8 +22,13 @@ export const loginUser = async (loginInfo) => {
   }
 }
 
-export const getAllRatings = async () => {
-
+export const getAllRatings = async (userId) => {
+  try {
+    const response = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings`)
+    return await response.json()
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 export const submitNewRating = async () => {

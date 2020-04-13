@@ -3,7 +3,7 @@ import './Login.css';
 import { logIn, getRatings } from '../../actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { loginUser } from '../../apiCalls';
+import { loginUser, getAllRatings } from '../../apiCalls';
 
 class Login extends Component {
   constructor(props) {
@@ -37,8 +37,7 @@ class Login extends Component {
         return data.user
       })
       .then(user => {
-        fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${user.id}/ratings`)
-        .then(response => response.json())
+        getAllRatings(user.id)
         .then(data => this.props.getRatings(data.ratings))
       })
       .catch(error => {
