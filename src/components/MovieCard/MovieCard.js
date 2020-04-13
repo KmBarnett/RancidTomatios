@@ -20,7 +20,7 @@ const MovieCard = (props) => {
           <p>Your Rating:</p>
           <StarSlider rating={props.userRating} />
         </section>}
-      </section>
+      </section> 
     </Link>
   )
 }
