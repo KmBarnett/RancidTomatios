@@ -21,6 +21,10 @@
   cursor: default;
 }
 
+.star-range input[type="range"]:focus+.star {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
 .star {
   position: absolute;
   z-index: 5;
