@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import RatingForm from '../RatingForm/RatingForm';
 import { rateMovie, getRatings } from '../../actions'
+import { Link } from 'react-router-dom'
+
 
 const MovieShowPage = (props) => {
   const { movie = {} } = props
@@ -42,6 +44,9 @@ const MovieShowPage = (props) => {
     <article className='show-page'>
       <img className='backdrop-img' src={movie.backdrop_path} />
       <section className='movie-info'>
+        <Link to='/'>
+          <button className='back-button' type='button'>⬅</button>
+        </Link>
         <h2>{movie.title}</h2>
         <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />
         <h3>Released: {moment(movie.release_date).format("MMMM Do, YYYY")}</h3>
@@ -54,11 +59,12 @@ const MovieShowPage = (props) => {
         <section>
           <p className='user-rating'>Your Rating:</p>
           <div>
-            <StarSlider className='star-range'rating={rating} />
-            <RatingForm
+            <StarSlider
+              rating={rating}
+              loggedIn={true}
               removePreviousRating={removePreviousRating}
               postMovieRating={postMovieRating}
-              rating={rating} />
+              />
           </div>
         </section>}
     </section>
