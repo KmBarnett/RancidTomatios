@@ -19,7 +19,7 @@ describe('Login', () => {
         </BrowserRouter>
       </Provider>
     
-    const { debug, getByText, getByPlaceholderText } = render(testWrapper)
+    const { getByText, getByPlaceholderText } = render(testWrapper)
 
     const emailInput = getByPlaceholderText('Your email');
     const passwordInput = getByPlaceholderText('Your password');
