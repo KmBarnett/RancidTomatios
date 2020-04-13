@@ -11,12 +11,15 @@ class StarSlider extends Component {
     }
   }
 
-  submitRating = event => {
+  async submitRating(event) {
     event.preventDefault();
+    let rating = event.target.value
     if (this.props.rating) {
-      this.props.removePreviousRating()
+      await this.props.removePreviousRating()
     }
-    this.props.postMovieRating(event.target.value)
+
+    this.props.postMovieRating(rating)
+
   }
 
 
