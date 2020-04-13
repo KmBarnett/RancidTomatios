@@ -6,8 +6,8 @@
 .poster-path-img {
   height: 15em;
   position: absolute;
-    bottom: 70%;
-    right: 6%;
+  bottom: 70%;
+  right: 6%;
 }
 
 .movie-info {
@@ -18,8 +18,8 @@
   padding: 3%;
   opacity: 0.9;
   position: absolute;
-    top: 35%;
-    left: 25%;
+  top: 35%;
+  left: 25%;
 }
 
 .movie-info h2 {
@@ -40,6 +40,11 @@
 .user-rating {
   font-size: 1.3em;
   text-align: center;
+}
+
+.back-button {
+  font-size: 2rem;
+  margin-top: -3%
 }
 
 .star-range {
