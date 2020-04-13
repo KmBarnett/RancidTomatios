@@ -1,9 +1,9 @@
 import React from 'react';
 import './MovieShowPage.css';
-import StarSlider from './../StarSlider/StarSlider.js';
+import StarSlider from '../../components/StarSlider/StarSlider.js';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import RatingForm from '../RatingForm/RatingForm';
+import RatingForm from '../../components/RatingForm/RatingForm';
 import { rateMovie, getRatings } from '../../actions'
 import { Link } from 'react-router-dom'
 
