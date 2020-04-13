@@ -9,7 +9,6 @@ const Movies = ({ movies, userRatings, userName }) => {
       let userRating = userRatings.find(userRating => movie.id === userRating.movie_id);
       const rating = userRating ?
       userRating.rating : 0;
-      console.log(`${movie.title}:`, rating);
       return <MovieCard
         {...movie}
         userRating={rating}
