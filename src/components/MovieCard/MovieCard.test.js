@@ -15,10 +15,10 @@ const movie = {
   average_rating: 6.4
 }
 
-function renderMovieCard(userRating) {
+function renderMovieCard(userRating, loggedIn = false) {
   const utils = render(
   <Router>
-    <MovieCard  { ... movie } userRating={userRating}/>
+    <MovieCard  { ... movie } userRating={userRating} loggedIn={loggedIn}/>
   </Router>
   )
   return utils
@@ -50,11 +50,11 @@ describe('MovieCard', () => {
   })
 
   it('Should Conditonaly render user rating', () => {
-    const { getByText, debug } = renderMovieCard({rating: 3});
-
+    const { getByText, debug } = renderMovieCard({rating: 3}, true);
+    
     const conditionalRating = getByText('Your Rating:')
 
-      expect(conditionalRating).toBeInTheDocument()
+    expect(conditionalRating).toBeInTheDocument()
   })
 
 

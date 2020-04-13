@@ -1,0 +1,26 @@
+.log-in-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8em;
+}
+
+.log-in-form input,
+.log-in-form button {
+  width: 15em;
+  font-size: 1.25em;
+  border-radius: 4px;
+  padding: .5em;
+  margin: .5em;
+}
+
+.log-in-form input {
+  border: 2px solid gray;
+}
+
+.log-in-form button {
+  background-color: #DB0300;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}

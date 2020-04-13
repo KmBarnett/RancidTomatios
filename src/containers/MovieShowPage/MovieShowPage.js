@@ -32,7 +32,7 @@ const MovieShowPage = (props) => {
       <img className='backdrop-img' src={movie.backdrop_path} />
       <section className='movie-info'>
         <Link to='/'>
-          <button className='back-button' type='button'>⬅</button>
+          <button className='back-button' type='button'>⬅ Back</button>
         </Link>
         <h2>{movie.title}</h2>
         <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />

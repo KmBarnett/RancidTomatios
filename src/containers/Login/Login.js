@@ -52,7 +52,7 @@ class Login extends Component {
   render() {
     const redirectPath = this.state.authenticated ? '/' : '/login';
     return (
-      <form onSubmit={this.submitForm} >
+      <form onSubmit={this.submitForm} className='log-in-form' >
         <Redirect to={redirectPath} />
         <input
           type='email'
