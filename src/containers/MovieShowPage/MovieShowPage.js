@@ -15,7 +15,7 @@ const MovieShowPage = (props) => {
 
   const removePreviousRating = () => {
     const ratingId = props.user.ratings.find(rating => rating.movie_id === movie.id).id
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings/${ratingId}`, {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings/${ratingId}`, {
       method: 'DELETE'
     })
       .catch(error => console.error(error))
@@ -45,7 +45,7 @@ const MovieShowPage = (props) => {
       <img className='backdrop-img' src={movie.backdrop_path} />
       <section className='movie-info'>
         <Link to='/'>
-          <button className='back-button' type='button'>⬅</button>
+          <button className='back-button' type='button'>⬅ Back</button>
         </Link>
         <h2>{movie.title}</h2>
         <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />
