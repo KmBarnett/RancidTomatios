@@ -29,8 +29,13 @@ describe('Header', () => {
     expect(logOutBtn).not.toBeInTheDocument();
   });
   
-  it('should render the correct content', () => {
-    
+  it('should be able to redirect the page after clicking the login button', () => {
+    const { getByText } = renderHeader();
+    const loginBtn = getByText('LOG IN');
+
+    fireEvent.click(loginBtn);
+
+    expect(location.pathname).toBe('/login');
   });
 
 })
