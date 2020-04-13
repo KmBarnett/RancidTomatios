@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import RatingForm from '../RatingForm/RatingForm';
 import { rateMovie, getRatings } from '../../actions'
+import { Link } from 'react-router-dom'
 
-const MovieShowPage = (props) => {
 
+export const MovieShowPage = (props) => {
   const { movie = {} } = props
   const rating = props.userRating ?
     props.userRating.rating : 0
@@ -42,35 +43,28 @@ const MovieShowPage = (props) => {
   return (
     <article className='show-page'>
       <img className='backdrop-img' src={movie.backdrop_path} />
-<<<<<<< Updated upstream
       <section className='movie-info'>
+        <Link to='/'>
+          <button className='back-button' type='button'>⬅</button>
+        </Link>
         <h2>{movie.title}</h2>
         <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />
         <h3>Released: {moment(movie.release_date).format("MMMM Do, YYYY")}</h3>
         <p className='movie-overview'>{movie.overview}</p>
-=======
-      <h2>{movie.title}</h2>
-      <h3>Released: {moment(movie.release_date).format("MMMM Do YYYY")}</h3>
->>>>>>> Stashed changes
       <section>
         <p className='user-rating'>Average Rating:</p>
         <StarSlider className='star-range' rating={movie.average_rating} />
       </section>
       {props.user.name &&
         <section>
-<<<<<<< Updated upstream
           <p className='user-rating'>Your Rating:</p>
           <div>
-            <StarSlider className='star-range'rating={rating} />
-=======
-          <p>Your Rating:</p>
-          <div className='blue'>
-            <StarSlider rating={rating} />
->>>>>>> Stashed changes
-            <RatingForm
+            <StarSlider
+              rating={rating}
+              loggedIn={true}
               removePreviousRating={removePreviousRating}
               postMovieRating={postMovieRating}
-              rating={rating} />
+              />
           </div>
         </section>}
     </section>
