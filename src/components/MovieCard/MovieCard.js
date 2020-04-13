@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const MovieCard = (props) => {
   return(
-    <Link to={`/movies/${props.id}`} className='card'>
+    <Link  data-testid='movie-card' to={`/movies/${props.id}`} className='card'>
       <img className='card-img' src={props.poster_path} alt={props.title} />
       <section className='card-text'>
         <h3>
@@ -15,12 +15,12 @@ const MovieCard = (props) => {
           <p>Average Rating:</p>
           <StarSlider rating = {props.average_rating}/>
         </section>
-        {props.userRating &&
+        {props.loggedIn &&
         <section>
           <p>Your Rating:</p>
-          <StarSlider rating={props.userRating.rating} />
+          <StarSlider rating={props.userRating} />
         </section>}
-      </section>
+      </section> 
     </Link>
   )
 }

@@ -12,19 +12,19 @@ describe('Login', () => {
   it('should render the correct content', () => {
     const testStore = createStore(rootReducer);
 
-    const testWrapper =
+    const testWrapper = 
       <Provider store={testStore}>
         <BrowserRouter>
           <Login />
         </BrowserRouter>
       </Provider>
-
+    
     const { getByText, getByPlaceholderText } = render(testWrapper)
 
     const emailInput = getByPlaceholderText('Your email');
     const passwordInput = getByPlaceholderText('Your password');
     const loginBtn = getByText('Log in');
-
+    
     expect(emailInput).toBeInTheDocument();
     expect(passwordInput).toBeInTheDocument()
     expect(loginBtn).toBeInTheDocument();
