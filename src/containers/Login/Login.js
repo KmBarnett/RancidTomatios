@@ -3,6 +3,7 @@ import './Login.css';
 import { logIn, getRatings } from '../../actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { loginUser } from '../../apiCalls';
 
 class Login extends Component {
   constructor(props) {
@@ -21,17 +22,11 @@ class Login extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v1/login', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password
-      })
-    })
-      .then(response => response.json())
+    const loginInfo = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    loginUser(loginInfo)
       .then(data => {
         this.props.logIn(data.user);
         this.setState({
