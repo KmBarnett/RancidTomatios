@@ -61,6 +61,7 @@ class Login extends Component {
       <form onSubmit={this.submitForm} className='log-in-form' >
         <Redirect to={redirectPath} />
         <input
+          aria-label='Email'
           type='email'
           name='email'
           value={this.state.email}
@@ -69,6 +70,7 @@ class Login extends Component {
           required
         />
         <input
+          aria-label='Password'
           type='password'
           name='password'
           value={this.state.password}
