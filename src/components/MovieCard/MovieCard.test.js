@@ -15,10 +15,10 @@ const movie = {
   average_rating: 6.4
 }
 
-function renderMovieCard() {
+function renderMovieCard(userRating) {
   const utils = render(
   <Router>
-    <MovieCard  { ... movie }/>
+    <MovieCard  { ... movie } userRating={userRating}/>
   </Router>
   )
   return utils
@@ -27,7 +27,7 @@ function renderMovieCard() {
 describe('MovieCard', () => {
 
   it('Should its exist', () => {
-    const { getByText, getByAltText } = renderMovieCard();
+    const { getByText, getByAltText } = renderMovieCard({});
 
     const title = getByText('Bloodshot')
     const avgRating = getByText('Average Rating:')
@@ -40,13 +40,21 @@ describe('MovieCard', () => {
   })
 
   it('Should navigate', () => {
-    const { getByTestId } = renderMovieCard();
+    const { getByTestId } = renderMovieCard({});
 
     const card = getByTestId('movie-card')
 
     fireEvent.click(card)
 
     expect(window.location.pathname).toBe(`/movies/1`)
+  })
+
+  it('Should Conditonaly render user rating', () => {
+    const { getByText, debug } = renderMovieCard({rating: 3});
+
+    const conditionalRating = getByText('Your Rating:')
+
+      expect(conditionalRating).toBeInTheDocument()
   })
 
 
