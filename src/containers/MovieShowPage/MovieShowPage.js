@@ -5,14 +5,10 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { rateMovie, getRatings } from '../../actions'
 import { Link } from 'react-router-dom'
-<<<<<<< HEAD:src/components/MovieShowPage/MovieShowPage.js
-=======
 import { getAllRatings, submitNewRating, deleteExistingRating } from '../../apiCalls';
 
->>>>>>> master:src/containers/MovieShowPage/MovieShowPage.js
 
-
-export const MovieShowPage = (props) => {
+const MovieShowPage = (props) => {
   const { movie = {} } = props
   const rating = props.userRating ?
     props.userRating.rating : 0
@@ -36,11 +32,7 @@ export const MovieShowPage = (props) => {
       <img className='backdrop-img' src={movie.backdrop_path} />
       <section className='movie-info'>
         <Link to='/'>
-<<<<<<< HEAD:src/components/MovieShowPage/MovieShowPage.js
-          <button className='back-button' type='button'>⬅</button>
-=======
           <button className='back-button' type='button'>⬅ Back</button>
->>>>>>> master:src/containers/MovieShowPage/MovieShowPage.js
         </Link>
         <h2>{movie.title}</h2>
         <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />
