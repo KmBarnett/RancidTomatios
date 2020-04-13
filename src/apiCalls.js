@@ -31,10 +31,29 @@ export const getAllRatings = async (userId) => {
   }
 }
 
-export const submitNewRating = async () => {
-
+export const submitNewRating = async (userId, movie, rating) => {
+  try {
+    await fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        movie_id: movie,
+        rating: parseInt(rating)
+      })
+    })
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-export const deleteExistingRating = async () => {
-
+export const deleteExistingRating = async (userId, ratingId) => {
+  try {
+      await fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${userId}/ratings/${ratingId}`, {
+        method: 'DELETE'
+        })
+  } catch(error) {
+    console.error(error)
+  }
 }
