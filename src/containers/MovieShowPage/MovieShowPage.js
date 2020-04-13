@@ -1,11 +1,15 @@
 import React from 'react';
 import './MovieShowPage.css';
-import StarSlider from './../StarSlider/StarSlider.js';
+import StarSlider from '../../components/StarSlider/StarSlider.js';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import RatingForm from '../RatingForm/RatingForm';
 import { rateMovie, getRatings } from '../../actions'
 import { Link } from 'react-router-dom'
+<<<<<<< HEAD:src/components/MovieShowPage/MovieShowPage.js
+=======
+import { getAllRatings, submitNewRating, deleteExistingRating } from '../../apiCalls';
+
+>>>>>>> master:src/containers/MovieShowPage/MovieShowPage.js
 
 
 export const MovieShowPage = (props) => {
@@ -15,27 +19,14 @@ export const MovieShowPage = (props) => {
 
   const removePreviousRating = () => {
     const ratingId = props.user.ratings.find(rating => rating.movie_id === movie.id).id
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings/${ratingId}`, {
-      method: 'DELETE'
-    })
-      .catch(error => console.error(error))
+    deleteExistingRating(props.user.id, ratingId)
   }
 
   const postMovieRating = rating => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        movie_id: movie.id,
-        rating: parseInt(rating)
-      })
-    })
-    .then( () => {
-      fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings`)
-        .then(response => response.json())
-        .then(data => props.getRatings(data.ratings))
+    submitNewRating(props.user.id, movie.id, rating)
+      .then( () => {
+    getAllRatings(props.user.id)
+      .then(data => props.getRatings(data.ratings))
     })
     .catch(error => console.error(error))
   }
@@ -45,7 +36,11 @@ export const MovieShowPage = (props) => {
       <img className='backdrop-img' src={movie.backdrop_path} />
       <section className='movie-info'>
         <Link to='/'>
+<<<<<<< HEAD:src/components/MovieShowPage/MovieShowPage.js
           <button className='back-button' type='button'>⬅</button>
+=======
+          <button className='back-button' type='button'>⬅ Back</button>
+>>>>>>> master:src/containers/MovieShowPage/MovieShowPage.js
         </Link>
         <h2>{movie.title}</h2>
         <img className='poster-path-img' src={movie.poster_path} alt={movie.title} />

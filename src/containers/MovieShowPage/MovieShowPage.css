@@ -6,8 +6,8 @@
 .poster-path-img {
   height: 15em;
   position: absolute;
-    bottom: 70%;
-    right: 6%;
+  bottom: 70%;
+  right: 6%;
 }
 
 .movie-info {
@@ -18,13 +18,18 @@
   padding: 3%;
   opacity: 0.9;
   position: absolute;
-    top: 35%;
-    left: 25%;
+  top: 35%;
+  left: 25%;
 }
 
 .movie-info h2 {
   font-size: 3em;
   width: 67%;
+}
+
+.back-button {
+  font-size: 2rem;
+  margin-top: -5%
 }
 
 .movie-info h3 {
@@ -45,8 +50,12 @@
 .star-range {
   margin: 0 auto 1% auto;
   width: 3.3em;
+<<<<<<< HEAD:src/components/MovieShowPage/MovieShowPage.css
 }
 
 .blue {
   background: orange;
 }
+=======
+}
+>>>>>>> master:src/containers/MovieShowPage/MovieShowPage.css

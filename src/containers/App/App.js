@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import { loadMovies } from '../../actions';
 import { connect } from 'react-redux';
-import Movies from '../../containers/Movies/Movies';
+import Movies from '../Movies/Movies';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import MovieShowPage from '../MovieShowPage/MovieShowPage';
 import { Route } from 'react-router-dom';
+import { getAllMovies } from '../../apiCalls';
 
 
 class App extends Component {
 
   componentDidMount = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
-    .then(response => response.json())
+    getAllMovies()
     .then(data => this.props.loadMovies(data.movies))
     .catch(error => console.error(error.message))
   }
