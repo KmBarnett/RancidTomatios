@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { getAllRatings, submitNewRating, deleteExistingRating } from '../../apiCalls';
 
 
-const MovieShowPage = (props) => {
+export const MovieShowPage = (props) => {
   const { movie = {} } = props
   const rating = props.userRating ?
     props.userRating.rating : 0
