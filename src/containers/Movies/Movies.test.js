@@ -74,7 +74,7 @@ describe('Header', () => {
     expect(userRatings[1]).toBeInTheDocument()
     
     expect(sliders[0].value).toBe('6')
-    expect(sliders[3].value).toBe('0')
+    expect(sliders[1].value).toBe('6')
 
   });
 

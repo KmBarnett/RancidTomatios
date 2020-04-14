@@ -27,7 +27,7 @@ function renderMovieCard(userRating, loggedIn = false) {
 describe('MovieCard', () => {
 
   it('Should its exist', () => {
-    const { getByText, getByAltText } = renderMovieCard({});
+    const { getByText, getByAltText } = renderMovieCard();
 
     const title = getByText('Bloodshot')
     const avgRating = getByText('Average Rating:')
@@ -40,7 +40,7 @@ describe('MovieCard', () => {
   })
 
   it('Should navigate', () => {
-    const { getByTestId } = renderMovieCard({});
+    const { getByTestId } = renderMovieCard();
 
     const card = getByTestId('movie-card')
 
@@ -50,7 +50,7 @@ describe('MovieCard', () => {
   })
 
   it('Should Conditonaly render user rating', () => {
-    const { getByText, debug } = renderMovieCard({rating: 3}, true);
+    const { getByText, debug } = renderMovieCard(3, true);
     
     const conditionalRating = getByText('Your Rating:')
 

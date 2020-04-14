@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import StarSlider from './StarSlider';
 
@@ -42,7 +42,7 @@ describe('MovieCard', () => {
     expect(starRange.disabled).toBe(false)
   })
 
-  it('Should its be enabled if a user is logged In', () => {
+  it('Should its be enabled if a user is logged In', async () => {
     const mockPostMovieRating = jest.fn();
     const mockRemovePreviousRating = jest.fn();
 
@@ -58,7 +58,7 @@ describe('MovieCard', () => {
     fireEvent.change(starRange, { target: { value: '6' } })
 
     expect(mockRemovePreviousRating).toHaveBeenCalled()
-    expect(mockPostMovieRating).toHaveBeenCalledWith('6')
+    await waitFor(() => expect(mockPostMovieRating).toHaveBeenCalledWith('6'))
   })
 
 })
