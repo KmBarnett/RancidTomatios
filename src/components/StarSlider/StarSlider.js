@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './StarSlider.css';
-
-
+import PropTypes from 'prop-types';
 
 class StarSlider extends Component {
   constructor(props) {
@@ -54,3 +53,10 @@ class StarSlider extends Component {
 }
 
 export default StarSlider;
+
+StarSlider.propTypes = {
+  loggedIn: PropTypes.bool,
+  rating: PropTypes.number,
+  postMovieRating: PropTypes.func,
+  removePreviousRating: PropTypes.func
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Movies.css'
 import MovieCard from '../../components/MovieCard/MovieCard';
+import PropTypes from 'prop-types';
 
 const Movies = ({ movies, userRatings, userName }) => {
   const allMovies = movies.map(movie => {
@@ -35,3 +36,23 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(Movies);
+
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    average_rating: PropTypes.number,
+    overview: PropTypes.string,
+    release_date: PropTypes.string,
+    backdrop_path: PropTypes.string,
+    poster_path: PropTypes.string
+  })),
+  userRatings: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    movie_id: PropTypes.number,
+    user_id: PropTypes.number,
+    rating: PropTypes.number,
+    created_at: PropTypes.string,
+    updated_at: PropTypes.string,
+  }))
+}

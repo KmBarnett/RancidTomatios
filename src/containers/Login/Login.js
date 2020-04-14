@@ -4,6 +4,7 @@ import { logIn, getRatings } from '../../actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginUser, getAllRatings } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 class Login extends Component {
   constructor(props) {
@@ -84,3 +85,8 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null, mapDispatchToProps)(Login);
+
+Login.propTypes = {
+  logIn: PropTypes.func.isRequired,
+  getRatings: PropTypes.func.isRequired
+}
