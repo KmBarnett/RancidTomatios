@@ -34,7 +34,18 @@ class StarSlider extends Component {
 
     return (
       <div className="star-range">
-        <input data-testid='star-range' onChange={(e) => {this.handleChange(e)}} disabled={!loggedIn} type="range" name="range" min="1" max="10" step="1" list="tickmark" value={rating}/>
+        <input
+          aria-label={loggedIn ? 'Rating Slider' : 'Rating View'}
+          onChange={(e) => {this.handleChange(e)}}
+          disabled={!loggedIn}
+          data-testid='star-range'
+          type="range"
+          name="range"
+          min="1"
+          max="10"
+          step="1"
+          list="tickmark"
+          value={rating}/>
         <div data-testid='empty-stars' className="star-white star">★★★★★</div>
         <div data-testid='full-stars' style={{width: rating/2 + 'em'}} className="star-black star">★★★★★</div>
       </div>
