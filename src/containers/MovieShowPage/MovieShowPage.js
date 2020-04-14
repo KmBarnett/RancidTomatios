@@ -29,7 +29,7 @@ const MovieShowPage = (props) => {
 
   return (
     <article className='show-page'>
-      <img className='backdrop-img' src={movie.backdrop_path} />
+      <img className='backdrop-img' alt={movie.title} src={movie.backdrop_path} />
       <section className='movie-info'>
         <Link to='/'>
           <button className='back-button' type='button'>⬅ Back</button>

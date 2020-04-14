@@ -11,7 +11,8 @@ class Login extends Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      authenticated: false
     }
   }
 
@@ -47,7 +48,7 @@ class Login extends Component {
           password: ''
         });
         alert('Incorrect email and/or password')
-      })
+      })    
   }
 
   render() {
