@@ -1,7 +1,8 @@
 import React from 'react';
 import './MovieCard.css';
 import StarSlider from './../StarSlider/StarSlider.js'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const MovieCard = (props) => {
   return(
@@ -20,9 +21,21 @@ const MovieCard = (props) => {
           <p>Your Rating:</p>
           <StarSlider rating={props.userRating} />
         </section>}
-      </section> 
+      </section>
     </Link>
   )
 }
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  loggedIn: PropTypes.bool,
+  id: PropTypes.number,
+  title: PropTypes.string,
+  average_rating: PropTypes.number,
+  userRating: PropTypes.number,
+  overview: PropTypes.string,
+  release_date: PropTypes.string,
+  backdrop_path: PropTypes.string,
+  poster_path: PropTypes.string
+}

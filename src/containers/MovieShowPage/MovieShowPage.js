@@ -6,7 +6,7 @@ import moment from 'moment';
 import { rateMovie, getRatings } from '../../actions'
 import { Link } from 'react-router-dom'
 import { getAllRatings, submitNewRating, deleteExistingRating } from '../../apiCalls';
-
+import PropTypes from 'prop-types';
 
 const MovieShowPage = (props) => {
   const { movie = {} } = props
@@ -75,3 +75,39 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieShowPage);
+
+MovieShowPage.propTypes = {
+  rateMovie: PropTypes.func.isRequired,
+  getRatings: PropTypes.func.isRequired,
+  matchId: PropTypes.number,
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    average_rating: PropTypes.number,
+    overview: PropTypes.string,
+    release_date: PropTypes.string,
+    backdrop_path: PropTypes.string,
+    poster_path: PropTypes.string
+  }),
+  user: PropTypes.shape({
+    email: PropTypes.string,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    ratings: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      movie_id: PropTypes.number,
+      user_id: PropTypes.number,
+      rating: PropTypes.number,
+      created_at: PropTypes.string,
+      updated_at: PropTypes.string,
+    }))
+  }),
+  userRating: PropTypes.shape({
+    id: PropTypes.number,
+    movie_id: PropTypes.number,
+    user_id: PropTypes.number,
+    rating: PropTypes.number,
+    created_at: PropTypes.string,
+    updated_at: PropTypes.string,
+  })
+}

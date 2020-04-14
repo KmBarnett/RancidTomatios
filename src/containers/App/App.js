@@ -8,6 +8,7 @@ import Login from '../Login/Login';
 import MovieShowPage from '../MovieShowPage/MovieShowPage';
 import { Route } from 'react-router-dom';
 import { getAllMovies } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 
 class App extends Component {
@@ -40,3 +41,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null, mapDispatchToProps)(App);
+
+App.propTypes = {
+  loadMovies: PropTypes.func.isRequired
+}
