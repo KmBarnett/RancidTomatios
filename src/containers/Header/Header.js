@@ -13,7 +13,7 @@ const Header = ({ user, logOut }) => {
       <Logo />
       {user.name && <h2>Welcome, {user.name}!</h2>}
       {user.name ?
-        <button onClick={logOut}>Log out</button> :
+        <button onClick={logOut}>LOG OUT</button> :
         <Link to='/login' >
           <button>LOG IN</button>
         </Link>
