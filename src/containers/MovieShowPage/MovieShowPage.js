@@ -3,9 +3,9 @@ import './MovieShowPage.css';
 import StarSlider from '../../components/StarSlider/StarSlider.js';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import RatingForm from '../../components/RatingForm/RatingForm';
 import { rateMovie, getRatings } from '../../actions'
 import { Link } from 'react-router-dom'
+import { getAllRatings, submitNewRating, deleteExistingRating } from '../../apiCalls';
 
 
 const MovieShowPage = (props) => {
@@ -15,27 +15,14 @@ const MovieShowPage = (props) => {
 
   const removePreviousRating = () => {
     const ratingId = props.user.ratings.find(rating => rating.movie_id === movie.id).id
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings/${ratingId}`, {
-      method: 'DELETE'
-    })
-      .catch(error => console.error(error))
+    deleteExistingRating(props.user.id, ratingId)
   }
 
   const postMovieRating = rating => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        movie_id: movie.id,
-        rating: parseInt(rating)
-      })
-    })
-    .then( () => {
-      fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${props.user.id}/ratings`)
-        .then(response => response.json())
-        .then(data => props.getRatings(data.ratings))
+    submitNewRating(props.user.id, movie.id, rating)
+      .then( () => {
+    getAllRatings(props.user.id)
+      .then(data => props.getRatings(data.ratings))
     })
     .catch(error => console.error(error))
   }
