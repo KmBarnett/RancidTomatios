@@ -1,4 +1,5 @@
 {
+  "homepage": "https://kmbarnett.github.io/RancidTomatios/",
   "name": "rancid-tamotillios",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +17,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
+    "test": "react-scripts test",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject"
   },
@@ -38,6 +42,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^10.0.2",
+    "gh-pages": "^2.2.0",
     "jest-environment-jsdom-sixteen": "^1.0.3"
   }
 }
