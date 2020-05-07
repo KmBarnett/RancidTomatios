@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/RancidTomatios/static/css/main.a3342441.chunk.css",
+    "main.js": "/RancidTomatios/static/js/main.31f90adf.chunk.js",
+    "main.js.map": "/RancidTomatios/static/js/main.31f90adf.chunk.js.map",
+    "runtime-main.js": "/RancidTomatios/static/js/runtime-main.141bbd59.js",
+    "runtime-main.js.map": "/RancidTomatios/static/js/runtime-main.141bbd59.js.map",
+    "static/js/2.0b0ad17c.chunk.js": "/RancidTomatios/static/js/2.0b0ad17c.chunk.js",
+    "static/js/2.0b0ad17c.chunk.js.map": "/RancidTomatios/static/js/2.0b0ad17c.chunk.js.map",
+    "index.html": "/RancidTomatios/index.html",
+    "precache-manifest.86d31d235be58e3614b2592234b340e0.js": "/RancidTomatios/precache-manifest.86d31d235be58e3614b2592234b340e0.js",
+    "service-worker.js": "/RancidTomatios/service-worker.js",
+    "static/css/main.a3342441.chunk.css.map": "/RancidTomatios/static/css/main.a3342441.chunk.css.map",
+    "static/js/2.0b0ad17c.chunk.js.LICENSE.txt": "/RancidTomatios/static/js/2.0b0ad17c.chunk.js.LICENSE.txt",
+    "static/media/Logo.7e7f044e.svg": "/RancidTomatios/static/media/Logo.7e7f044e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.141bbd59.js",
+    "static/js/2.0b0ad17c.chunk.js",
+    "static/css/main.a3342441.chunk.css",
+    "static/js/main.31f90adf.chunk.js"
+  ]
+}
