@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ed4f2e1531590c4d96d48df2d713c408",
+    "revision": "67df9cab6ff35c048c5d5e59dfd04549",
     "url": "/RancidTomatios/index.html"
   },
   {
-    "revision": "1e5c595fd31d56281b7b",
+    "revision": "c9cf91f6be683d24d0da",
     "url": "/RancidTomatios/static/css/main.a3342441.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RancidTomatios/static/js/2.0b0ad17c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1e5c595fd31d56281b7b",
-    "url": "/RancidTomatios/static/js/main.31f90adf.chunk.js"
+    "revision": "c9cf91f6be683d24d0da",
+    "url": "/RancidTomatios/static/js/main.5fafee54.chunk.js"
   },
   {
     "revision": "2fe53b2d0de8a0ad32ff",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/RancidTomatios/precache-manifest.86d31d235be58e3614b2592234b340e0.js"
+  "/RancidTomatios/precache-manifest.4e35dc48386a2d55f58b082c3fc392f4.js"
 );
 
 self.addEventListener('message', (event) => {
